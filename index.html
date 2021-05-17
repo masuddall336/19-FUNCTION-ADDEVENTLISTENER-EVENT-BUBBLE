@@ -1,0 +1,213 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 onclick=" testOnclicki()">Exploer event......</h1>
+    <button onclick = "alert('hi')">Click me!</button>
+    <h1 onclick = "alert('hello')">hi..</h1>
+
+    <button id = "on">ki khobor</button>
+    <button id = "on2">green</button>
+    <button id = "on3">orange</button>
+    <button id = "on4">red</button>
+    <button id = "on5">change-5</button>
+
+    <div id="wrap">
+        <h2 id="head">Select items</h2>
+        <ul id="all-list">
+            <li id="hm" class="item">loren6-1</li>
+            <li class="item">loren6-2</li>
+            <li class="item">loren6-3</li>
+            <li class="item">loren6-4</li>
+            <li class="item">loren6-5</li>
+        </ul>        
+    </div>
+
+    <div class="unli">
+        <h1>Target items</h1>
+        <ul>
+            <li class="itemss">list-1</li>
+            <li class="itemss">list-2</li>
+            <li class="itemss">list-3</li>
+            <li class="itemss">list-4</li>
+            <li class="itemss">list-5</li>
+        </ul>
+    </div>
+
+    <div class="unli2">
+        <h1>Target parent HTML element</h1>
+        <ul>
+            <li class="itemsss">list-1</li>
+            <li class="itemsss">list-2</li>
+            <li class="itemsss">list-3</li>
+            <li class="itemsss">list-4</li>
+            <li class="itemsss">list-5</li>
+        </ul>
+    </div>
+
+    <div class="unli3">
+        <h1>remove list item</h1>
+        <ul>
+            <li class="itemssss">list-1</li>
+            <li class="itemssss">list-2</li>
+            <li class="itemssss">list-3</li>
+            <li class="itemssss">list-4</li>
+            <li class="itemssss">list-5</li>
+        </ul>
+    </div>
+
+    <div id="">
+        <h1>Add list item</h1>
+        <ul id="unli4">
+            <li class="itemsssss">list-1</li>
+            <li class="itemsssss">list-2</li>
+            <li class="itemsssss">list-3</li>
+            <li class="itemsssss">list-4</li>
+            <li class="itemsssss">list-5</li>
+        </ul>
+    </div>
+    <button id="addButon">Add new button</button>
+    <button id="addButon2">Add new button-2</button>
+
+
+
+    <div id="add-andremobe">
+        <h1>Add and remove together</h1>
+        <ul id="ul">
+            <li class="list">li-1</li>
+            <li class="list">li-2</li>
+            <li class="list">li-3</li>
+            <li class="list">li-4</li>
+            <li class="list">li-5</li>
+        </ul>
+    </div>
+
+
+<script>
+    
+    function testOnclicki (){
+        console.log("I am trying ti di it....");
+    }
+    var takeOn = document.getElementById("on");
+    takeOn.onclick =  function nameF (){
+         console.log("valo..Tomar ki khobor.");
+    }
+
+
+
+
+
+    function nameFF (){
+        document.body.style.backgroundColor = "green";
+    }
+     var takeOn2 = document.getElementById("on2");
+     takeOn2.onclick = nameFF;
+
+
+
+
+
+     function nameFFF (){
+        document.body.style.backgroundColor = "orange";
+    }
+        var takeonn = document.getElementById("on3");
+        takeonn.addEventListener('click', nameFFF);
+
+
+
+
+
+        function nameFFFF (){
+        document.body.style.backgroundColor = "red";
+    }
+        document.getElementById("on4").addEventListener("click", nameFFFF);
+
+
+
+
+
+        document.getElementById("on5").addEventListener("click", function(){
+            document.body.style.backgroundColor = "#4B2F36";
+        })
+
+
+        document.getElementById("wrap").addEventListener("click", function(){
+            console.log("Abdullah al - Masud");
+        })
+        document.getElementById("hm").addEventListener("click", function(){
+            console.log("what is your name..?");
+            event.stopPropagation();
+        })
+        document.getElementById("all-list").addEventListener("click",function(){
+            console.log("u li show");
+            event.stopPropagation()
+        })
+
+
+
+        var allit =  document.getElementsByClassName("itemss");
+           for (let i = 0; i < allit.length; i++) {
+               var allitTake = allit[i];
+               allitTake.addEventListener("click",function(event){
+                   console.log(this, event.target.innerText);
+               })
+           }
+
+           var allit2 =  document.getElementsByClassName("itemsss");
+           for (let i = 0; i < allit2.length; i++) {
+               var allitTake2 = allit2[i];
+               allitTake2.addEventListener("click",function(event){
+                   console.log(this,event.target.parentNode);
+               })
+           }
+
+           var allit3 =  document.getElementsByClassName("itemssss");
+           for (let i = 0; i < allit3.length; i++) {
+               var allitTake3 = allit3[i];
+               allitTake3.addEventListener("click",function(event){
+                   event.target.parentNode.removeChild(event.target);
+               })
+           }
+
+           document.getElementById("addButon").addEventListener("click", function(event){
+                var taleLI = document.getElementById("unli4");
+                var creatE = document.createElement("li");
+                creatE.innerText = " add list imes";
+                taleLI.appendChild(creatE);
+           })
+
+        //  var take5 =   document.getElementsByClassName("list");
+        //  for (var i = 0; i < take5.length; i++) {
+        //      var takeTake5 = take5[i];
+        //      takeTake5.addEventListener("click", function(event){
+        //         event.target.parentNode.removeChild(event.target);
+        //      })
+        //  }
+
+         document.getElementById("addButon2").addEventListener("click", function(event){
+            var takewrap = document.getElementById("ul");
+            var creat = document.createElement("li");
+            creat.innerText = "Added list item";
+            takewrap.appendChild(creat);
+         })
+         document.getElementById("ul").addEventListener("click", function(event){
+             event.target.parentNode.removeChild(event.target);
+         })
+</script>
+
+
+
+</body>
+</html>
+
+
+
+
+
+
